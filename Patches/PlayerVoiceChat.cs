@@ -14,6 +14,9 @@ namespace MuteToggle.Patches
             // Don't run if the mod is disabled or the microphone is disabled.
             if (!Settings.IsToggleMuteModEnabled.Value || !___microphoneEnabled) return;
             
+            // Don't run if the chat window is open.
+            if (Settings.ChatGameObject != null && Settings.ChatGameObject.activeSelf) return;
+            
             // Check for push-to-talk key press and change value of toggleMute.
             if (SemiFunc.InputDown(InputKey.PushToTalk))
             {

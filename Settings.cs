@@ -1,7 +1,5 @@
 ﻿using BepInEx.Configuration;
 using BepInEx.Logging;
-using MuteToggle.Patches;
-using TMPro;
 using UnityEngine;
 
 namespace MuteToggle
@@ -15,6 +13,8 @@ namespace MuteToggle
         
         public static bool MuteToggleState { get; internal set; }
         public static GameObject? MutedIndicator { get; internal set; }
+        
+        public static GameObject? ChatGameObject { get; internal set; }
 
         internal static void Initialize(ConfigFile config, ManualLogSource logger)
         {
