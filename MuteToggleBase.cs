@@ -9,7 +9,7 @@ namespace MuteToggle
     {
         private const string PluginGuid = "soundedsquash.togglemute";
         private const string PluginName = "Toggle Mute";
-        private const string PluginVersion = "0.1.5.0";
+        private const string PluginVersion = "0.1.6.0";
         
         private readonly Harmony _harmony = new Harmony(PluginGuid);
 
@@ -23,10 +23,12 @@ namespace MuteToggle
             _harmony.PatchAll();
             ManualLogSource.LogInfo($"{PluginName} loaded");
         }
-
+        
+        #if DEBUG
         public void OnDestroy()
         {
             _harmony.UnpatchSelf();
         }
+        #endif
     }
 }

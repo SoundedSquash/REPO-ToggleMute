@@ -6,8 +6,9 @@ namespace MuteToggle
 {
     public static class Settings
     {
-        public static ConfigEntry<bool> IsToggleMuteModEnabled { get; private set; }
-        public static ConfigEntry<bool> StartUnmuted { get; private set; }
+        public static ConfigEntry<bool> IsToggleMuteModEnabled { get; set; }
+        public static ConfigEntry<bool> StartUnmuted { get; set; }
+        public static ConfigEntry<string> MutedText { get; set; }
         
         public static ManualLogSource Logger { get; private set; }
         
@@ -25,6 +26,12 @@ namespace MuteToggle
                 "Enabled",
                 true,
                 "Enable this mod. This overrides push to talk setting.");
+            
+            MutedText = config.Bind(
+                "General",
+                "Text",
+                "MUTED",
+                "Text to display when muted.");
             
             StartUnmuted = config.Bind(
                 "General",

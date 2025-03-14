@@ -22,7 +22,7 @@ namespace MuteToggle.Patches
             var toClone = GameObject.Find("EnergyMax");
             if (toClone == null)
             {
-                //Settings.Logger.LogError("Could not find text to clone (EnergyMax). HUD patching failed.");
+                Settings.Logger.LogError("Could not find text to clone (EnergyMax). HUD patching failed.");
                 return;
             }
             // Copy reference GameObject up one more level to Game Hud
@@ -31,7 +31,7 @@ namespace MuteToggle.Patches
             mutedText.transform.position = new Vector3(16, 27, 0);
             
             var mutedTextTMP = mutedText.GetComponent<TextMeshProUGUI>();
-            mutedTextTMP.text = "MUTED";
+            mutedTextTMP.text = Settings.MutedText.Value;
             mutedTextTMP.color = Color.red;
             
             Settings.MutedIndicator = mutedText;
